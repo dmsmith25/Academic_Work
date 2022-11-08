@@ -1,0 +1,16 @@
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		QueueLi test = new QueueLi();
+		test.enqueue(1);
+		test.enqueue(2);
+		System.out.println(test.dequeue());
+		System.out.println(test.peek());
+		
+
+	}
+
+}

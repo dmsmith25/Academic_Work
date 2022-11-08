@@ -1,0 +1,106 @@
+Dean Smith
+Cs202
+
+x86 Instruction Reference
+
+Points about notation:
+- following any instruction in x86 will be the bit size of the value they are computing (For example: q = 64-bit, l = 32-bit, w = 16-bit, and b = 8-bit).
+- imm = an immediate value which in x86 is represented with a "$" before the value
+- Rn = a hypothetical register used for the sake of explaining the funcitonality of instructions
+- Rm = another hypothetical register used for instrutions that can take 2 registers as parameters
+- .L = a secton of the x86 assembly code labeled with a ".L" followed by a number which indicates where a jump may set the program counter to.
+- func = a hypothetical function
+- PC = program counter
+
+Special Purpose Registers:
+- %rbp = base pointer of main stack frame
+- %eax, %edx, edi = general purpose registers
+
+mov (immediate):
+    Assembly: movl  imm, Rn
+    Effect: Rn <- imm
+    Takes the value of imm and stores it in Rn.
+
+mov (register):
+    Assembly: movl  Rm, Rn
+    Effect: Rn <- Rm
+    Takes the value stored in Rm and stores it in Rn.
+
+add (immediate):
+    Assembly: addl  imm, Rn
+    Effect: Rn <- imm + Rn
+    Takes the sum of the value imm and the value stored in Rn and stores it in Rn.
+
+add (register):
+    Assembly: addl  Rm, Rn
+    Effect: $rbp <- Rm + Rn
+    Takes the sum of the value stored in Rm and the value stored in Rn and stores it in Rn.
+
+cmp (immediate):
+    Assembly: cmpl  imm, Rn
+    Effect: (no convenient abbreviation)
+    If the value stored in Rn is greater than imm, the cmp instruction sets the "P" condition code; if it is less than, sets the "N" condition code; otherwise sets the "Z" condition code.
+
+cmp (register):
+    Assembly: cmpl  Rm, Rn
+    Effect: (no convenient abbreviation)
+    If the value stored in Rn is greater than Rm, the cmp instruction sets the "P" condition code; if it is less than, sets the "N" condition code; otherwise sets the "Z" condition code.
+
+jmp:
+    Assembly: jmp .L
+    Effect: PC <- line index of .L
+    Unconditionally sets the PC to the location where the specificed .L is located.
+
+jle:
+    Assembly: jle .L
+    Effect: if(cond: <=), PC <- line index of .L
+    If the previous cmp instruction sets the condition code to "N" or "Z", then the instruction sets the PC to the location where the specificed .L is located.
+
+jg:
+    Assembly: jg .L
+    Effect: if(cond >), PC <- line index of .L
+    If the previous cmp instruction sets the condition code to "P", then the instruction sets the PC to the location where the specificed .L is located.
+
+jns:
+    Assembly: jns .L
+    Effect: if(cond ==), PC <- line index of .L
+    If the previous cmp instruction sets the condition code to "Z", then the instruction sets the PC to the location where the specificed .L is located.
+
+
+sub (immediate):
+    Assembly: subl imm, Rn
+    Effect: Rn <- Rn - imm
+    Takes the difference of the value stored in Rn minus the value imm and stores the result in Rn
+
+sub (register):
+    Assembly: subl Rm, Rn
+    Effect: Rn <- Rn - Rm
+    Takes the difference of the value stored in Rn minus the value stored in Rm and stores the result in Rn
+
+cal:
+    Assembly: call func
+    Effect: (no convenient abbreviation)
+
+
+sal (immediate):
+    Assembly: sall imm, Rn
+    Effect: Rn <- Rn * 2^imm
+    Multiplies the value stored in Rn by 2 to the power of imm and stores the product in Rn.
+    If imm is not present, then by default imm = 1 and the result is the value stored in Rn is multiplied by 2 and the product is stored in Rn
+
+
+neg:
+    Assembly: negl Rn
+    Effect: Rn <- Rn * -1
+    Takes the value stored in Rn and multiplies it by -1 and the stores the product in Rn.
+
+
+push:
+    Assembly: pushq Rn
+    Effect: (no convenient abbreviation)
+    The push instruction initializes the start of the main stack frame
+
+pop:
+    Assembly: popq Rn
+    Effect: (no convenient abbreviation)
+    The pop instruction terminates the main stack frame

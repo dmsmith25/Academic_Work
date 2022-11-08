@@ -1,0 +1,8 @@
+Alice
+100
+Bob
+50
+Lucy
+10
+Ethel
+40

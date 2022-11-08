@@ -1,0 +1,44 @@
+Dean Smith
+CS202
+
+Part 1:
+
+1. I wrote program Part1_1.c to make a recursive call to the stack thus maxing out the stack. I then used the gdb
+    debugger to find the stack before the recursive call and after the recursive call. The first stack I got was
+    at location 0x7fffffffe870 and the final destination of the stack after the recursive call was 0x7fffff7ff020.
+    Meaning that 0x7fffffffe870 - 0x7fffff7ff020 = 7ff850 for the size of the stack or 8.38664 megabytes.
+
+2. I ran the program again and got the same values for the locations of the stack. Therefore, it is repeatable.
+
+3. I changed the value of the variable t in the program Part1_1.c to a much larger value (1048576) rather than the value I assigned it 
+    in parts 1 and 2 (4) and the results were the same, meaning the stack size is independent of the stack frame size.
+
+
+Part 2:
+
+1. I wrote the program Part2_two_calls.c to make two different calls to malloc of the same size (6). The result was two addresses that
+    were 32 bytes away (first address: 1431671456, second address: 1431671488).
+
+2. The size of the chuck does effect how close the addresses are returned through malloc due to the size of the chuck requested. I found this through editing the call to malloc in funciton 
+    *baz() to 100 in the program Part2_two_calls.c. This resulted in the addresses being 112 bytes apart (malloc(100): 1431671568, malloc(6): 1431671456).
+
+3. Malloc gives n + 16 more bytes than requested where n is the number of bytes requested and automatically allocates 26 bytes if n <= 10. I found this through editing variable i in the program Part2_two_calls.c and using trial and error to find
+    that if i > 10, then the code does not run properly due to allocating too much data at the requested memory if I used 17 more bytes then requested. For numbers 10 or under,
+    malloc will give me 26 bytes of memory.
+
+4. Malloc may behave like this in order to give the user some wiggle room in case there is more data allocated than anticipated. If malloc didn't
+    behave like this then avoiding errors would be much harder.
+
+
+Part 3:
+
+1. I ran my program part3_memory.c which I made 3 calls to memory and printed them for the stack, instructions through main, and the heap. What I found is that the instructions and the heap are
+    relativly close to one another while the stack is much further away. The relative value of the address stay consistent where the Intructions have the lowest address value then closely after is the heap
+    and farther away is the stack. 
+
+
+Part 4:
+
+1. I wrote the program part4_buffer_overflow.c to create a buffer overflow. In the program, I called the function "function" from main which created a type char array buffer of size 16 and took in
+    a type char array large_string with size of 256 to then copy the contents of large_string into the buffer. As a result, since large_string has more data than can be allocated to the buffer 
+    and since the compiler does not check for the bounds, the function "function" is returned to the bystander function which results in the code terminating due to a segmentation violation.

@@ -1,0 +1,81 @@
+Dean Smith
+CS202
+
+Test Log:
+
+Test1: Testing key to value pairs when memory is not full.
+- set write-key to 00000001, set write-value to 00001001 toggle clock
+- set write-key to 00000010, set write-value to 00001010 toggle clock
+- set write-key to 00000011, set write-value to 00001011 toggle clock
+- set write-key to 00000100, set write-value to 00001100 toggle clock
+- set write-key to 00000101, set write-value to 00001101 toggle clock
+- set write-key to 00000110, set write-value to 00001110 toggle clock
+- set write-key to 00000111, set write-value to 00001111 toggle clock
+- set write-key to 00001000, set write-value to 00010000 toggle clock
+- set read-key to 00000001, expected read-value = 00001001
+- set read-key to 00000010, expected read-value = 00001010
+- set read-key to 00000011, expected read-value = 00001011
+- set read-key to 00000100, expected read-value = 00001100
+- set read-key to 00000101, expected read-value = 00001101
+- set read-key to 00000110, expected read-value = 00001110
+- set read-key to 00000111, expected read-value = 00001111
+- set read-key to 00001000, expected read-value = 00010000
+
+Test 2: Testing key to value pairs when memory is full.
+- perform test1.
+- set write-key to 00000001, set write-value to 00000001 toggle clock
+- set write-key to 00000010, set write-value to 00000010 toggle clock
+- set write-key to 00000011, set write-value to 00000011 toggle clock
+- set write-key to 00000100, set write-value to 00000100 toggle clock
+- set read-key to 00000001, expected read-value = 00000001
+- set read-key to 00000010, expected read-value = 00000010
+- set read-key to 00000011, expected read-value = 00000011
+- set read-key to 00000100, expected read-value = 00000100
+- set read-key to 00000101, expected read-value = 00001101
+- set read-key to 00000110, expected read-value = 00001110
+- set read-key to 00000111, expected read-value = 00001111
+- set read-key to 00001000, expected read-value = 00010000
+
+Test3: Implements eviction policy without replacement.
+- perform test 1.
+- set write-key to 00000001, set write-value to 00000000 toggle clock
+- set write-key to 00000010, set write-value to 00000001 toggle clock
+- set write-key to 00000011, set write-value to 00000010 toggle clock
+- set write-key to 00000100, set write-value to 00000011 toggle clock
+- set write-key to 00000101, set write-value to 00000100 toggle clock
+- set write-key to 00000110, set write-value to 00000101 toggle clock
+- set write-key to 00000111, set write-value to 00000110 toggle clock
+- set write-key to 00001000, set write-value to 00000111 toggle clock
+- set read-key to 00000001, expected read-value = 00000000
+- set read-key to 00000010, expected read-value = 00000001
+- set read-key to 00000011, expected read-value = 00000010
+- set read-key to 00000100, expected read-value = 00000011
+- set read-key to 00000101, expected read-value = 00000100
+- set read-key to 00000110, expected read-value = 00000101
+- set read-key to 00000111, expected read-value = 00000110
+- set read-key to 00001000, expected read-value = 00000111
+
+Test4: Correctly replaces duplicate keys.
+- set write-key to 00000001, set write-value to 00000000 toggle clock
+- set write-key to 00000010, set write-value to 00000001 toggle clock
+- set write-key to 00000011, set write-value to 00000010 toggle clock
+- set write-key to 00000010, set write-value to 00000011 toggle clock
+- set read-key to 00000001, expected read-value = 00000000
+- set read-key to 00000010, expected read-value = 00000011
+- set read-key to 00000011, expected read-value = 00000010
+
+Test 5: Correctly implements eviction in light of replacement.
+- set write-key to 00000001, set write-value to 00001001 toggle clock
+- set write-key to 00000010, set write-value to 00001010 toggle clock
+- set write-key to 00000011, set write-value to 00001011 toggle clock
+- set write-key to 00000010, set write-value to 00000000 toggle clock
+- set write-key to 00000100, set write-value to 00001100 toggle clock
+- set write-key to 00000101, set write-value to 00001101 toggle clock
+- set write-key to 00000110, set write-value to 00001110 toggle clock
+- set write-key to 00000111, set write-value to 00001111 toggle clock
+- set write-key to 00001000, set write-value to 00010000 toggle clock
+- set write-key to 00001001, set write-value to 00000001 toggle clock
+- set write-key to 00001011, set write-value to 00000010 toggle clock
+- set read-key to 00001001, expected read-value = 00000001 toggle clock
+- set read-key to 00000010, expected read-value = 00001010 toggle clock
+- set read-key to 00001011, expected read-value = 00000010 toggle clock

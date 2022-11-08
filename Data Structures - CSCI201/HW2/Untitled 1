@@ -1,0 +1,49 @@
+Driver:
+
+static int numincorrect = 0; //global
+
+main(...){
+	Hangman game = new Hangman();
+	
+	String word = game.selectGameWord();
+	1 - System.out.println(game.getCurrentWord());)
+	2 - game.showMan(numincorrect);
+	3 - System.out.println(game.getIncorrectGuesses(?));
+	
+	while(player can still guess){ //numincorrect < 10 && player hasn't guessed word yet
+		c = getChoice(); // letter or entire word
+		if (c == 'L'){ // letter guess
+			g = getGuessL(); //get letter guess
+			if(word contains g){
+				1
+				2
+				3
+				if (all letters guessed){
+					player wins!
+			}else // g not in word{
+				numincorrect ++
+				1
+				2
+				3
+		
+		}else // word{
+		
+			w = getGuessW();
+			if(w correct){
+				player wins
+			else{
+				player loses
+				
+_____________________________________________________________________________
+
+In Hangman
+
+public String getCurrentWord(char g){
+	for(var i = 0; i < gameWord.length; i++){
+		if(game.charAt(i) == g){
+			dispArr[i] = g;
+	
+	//convert display array to a string
+	
+	return disArrString
+			

@@ -1,0 +1,24 @@
+Dean Smith
+CS202
+Homework #2
+
+1. 63,786
+
+2. -1750
+
+3. 0x 43 53 20 32 30 32
+
+4. 
+    First integer = 17235
+    Second integer = 8242
+    Third integer = 12338
+
+
+5. 01000010011010110100000000000000 as IEEE 754 and 58.8125 as a decimal
+
+6.
+    i. 0x 8B
+    ii. 0x FF 8B
+    iii. I would conjecture -117 in 32 bit 2's compliment to be 0x FF FF FF 8B written in hex and the pattern would be
+         that for whatever bit size the number is, it would be F's for all the most significant bits and then 8B for the 
+         two least significant bits.

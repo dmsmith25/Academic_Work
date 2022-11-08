@@ -1,0 +1,23 @@
+
+For small file:
+
+- fully associative hits = 100964
+- fully associative misses = 4088
+
+- direct mapped hits = 98806
+- direct mapped misses = 6246
+
+- 8-way set associative hits = 100940
+- 8-way set associative misses = 4112
+
+
+For large file:
+
+- fully associative hits = 16536483
+- fully associative misses = 87074
+
+- direct mapped hits = 16467847
+- direct mapped misses = 155710
+
+- 8-way set associative hits = 16536538
+- 8-way set associative misses = 87019

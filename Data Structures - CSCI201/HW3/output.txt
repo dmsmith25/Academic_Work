@@ -1,0 +1,3 @@
+Queries:
+Bobby Sam Michael
+Average Degree of Separation of entire group: 4.382335

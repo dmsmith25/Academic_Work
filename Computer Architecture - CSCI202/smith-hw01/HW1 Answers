@@ -1,0 +1,62 @@
+Dean Smith
+CS202
+02/23/2022
+
+1. Visual Studio Code
+
+2. NOT(NOT(A) OR NOT(B)) = A AND B
+
+Truth Table for A AND B:
+
+A  |  B  |  A AND B
+_____________________
+
+0  |  0  |     0
+
+0  |  1  |     0
+
+1  |  0  |     0
+
+1  |  1  |     1
+
+
+3. Truth Table for Circuit:
+
+A  |  B  |  C  |  Output
+__________________________
+
+0  |  0  |  0  |    1
+
+1  |  0  |  0  |    1
+
+0  |  1  |  0  |    1
+
+0  |  0  |  1  |    0
+
+1  |  1  |  0  |    0
+
+1  |  0  |  1  |    0
+
+0  |  1  |  1  |    0
+
+1  |  1  |  1  |    0
+
+
+4. 
+    The flaw in the following circuit is that when one of the inputs equals 1 and the other equals 0,
+     there is a short circuit and when both inputs are selected, the out is returning a Z value.
+    What is causing this problem is that the bottom part of the circuit and the top part of the circuit
+     are sometimes both returning values 1 and 0 and in one instance both returning Z. 
+
+
+5.
+    1. A 
+    2. A 
+    3. B 
+    4. B 
+    5. C 
+    6. Output
+    7. C 
+
+
+6. Digital File in folder

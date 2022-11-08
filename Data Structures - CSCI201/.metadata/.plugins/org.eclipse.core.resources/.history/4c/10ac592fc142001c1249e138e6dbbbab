@@ -1,0 +1,178 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Stack;
+
+
+
+public class TimeTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Reading filename from command line.");
+		System.out.println(">>File2.dat read");
+		
+		boolean stop = false;
+		while(stop == false) {
+			
+			System.out.println();
+			System.out.println("      ADT Menu");
+			System.out.println("0. Quit\n"
+					+ "1. LinkedList (insert at end)\n"
+					+ "2. StackArray\n"
+					+ "3. StackList\n"
+					+ "4. QueueList\n"
+					+ "5. ArrayList\n"
+					+ "6. array\n"
+					+ "Your choice >>");
+			System.out.println(args[0]);
+			int resp = scan.nextInt();
+			Scanner fr = new Scanner(args[0]);
+			fr.nextLine();
+			
+			String rawData = fr.nextLine();
+			String[] listData = rawData.split(" "); 
+			System.out.println(listData[0]);
+			
+			if(resp == 1) {
+				System.out.println("CPU time: " + LinkedList(listData));
+			}else if(resp == 2){
+				System.out.println("CPU time: " + StackArray(listData));
+			}else if(resp == 3) {
+				System.out.println("CPU time: " + StackList(listData));
+			}else if(resp == 4) {
+				System.out.println("CPU time: " + QueueList(listData));
+			}else if(resp == 5){
+				System.out.println("CPU time: " + ArrayList(listData));
+			}else if(resp == 6) {
+				System.out.println("CPU time: " + Array(listData));
+			}else {
+				stop = true;
+			}
+			
+			
+			
+			
+			
+			 
+			
+			
+			
+			
+		}
+		
+		
+
+	}
+	
+	public static long QueueList(String[] data) {
+		QueueLi test = new QueueLi();
+		long start = System.currentTimeMillis();
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].charAt(0) == 'i') {
+				int a = data[i].charAt(1);
+				test.enqueue(a);
+			}else {
+				test.dequeue();
+			}
+		}
+		long end = System.currentTimeMillis();;
+		
+		return end - start;
+		 
+			
+	}
+	
+	public static long StackList(String[] data) {
+		StackLi test = new StackLi();
+		long start = System.currentTimeMillis();
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].charAt(0) == 'i') {
+				int a = data[i].charAt(1);
+				test.push(a);
+			}else {
+				test.pop();
+			}
+		}
+		long end = System.currentTimeMillis();;
+		
+		return end - start;
+		
+	}
+	
+	public static long ArrayList(String[] data) {
+		ArrayList<Integer> test = new ArrayList<Integer>();
+		long start = System.currentTimeMillis();
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].charAt(0) == 'i') {
+				int a = data[i].charAt(1);
+				test.add(a);
+			}else {
+				int a = data[i].charAt(1);
+				test.remove(a);
+			}
+		}
+		long end = System.currentTimeMillis();;
+		
+		return end - start;
+	}
+	
+	public static long Array(String[] data) {
+		Integer[] test = new Integer[250000];
+		System.out.println(test[0]);
+		int next = 0;
+		long start = System.currentTimeMillis();
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].charAt(0) == 'i') {
+				int a = data[i].charAt(1);
+				test[next] = a;
+				next++;
+			}else {
+				// FIX
+				
+			}
+		}
+		long end = System.currentTimeMillis();;
+		
+		return end - start;
+	}
+	
+	public static long LinkedList(String[] data) {
+		LinkedList<Integer> test = new LinkedList<Integer>();
+		long start = System.currentTimeMillis();
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].charAt(0) == 'i') {
+				int a = data[i].charAt(1);
+				test.add(a);
+			}else {
+				int a = data[i].charAt(1);
+				test.remove(a);
+			}
+		}
+		long end = System.currentTimeMillis();;
+		
+		return end - start;
+	}
+	
+	public static long StackArray(String[] data) {
+		Stack<Integer> test = new Stack<Integer>();
+		long start = System.currentTimeMillis();
+		for(var i = 0; i < data.length; i++) {
+			if(data[i].charAt(0) == 'i') {
+				int a = data[i].charAt(1);
+				test.add(a);
+			}else {
+				int a = data[i].charAt(1);
+				test.remove(a);
+			}
+		}
+		long end = System.currentTimeMillis();;
+		
+		return end - start;
+	}
+	
+
+}

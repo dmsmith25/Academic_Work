@@ -1,0 +1,17 @@
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		StackLi test = new StackLi();
+		test.push(1);
+		test.push(2);
+		test.push(3);
+		System.out.println(test.pop());
+		System.out.println(test.peek());
+		
+
+	}
+
+}

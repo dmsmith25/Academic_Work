@@ -1,0 +1,69 @@
+Dean Smith
+CS202
+
+Test Plan for Part 1:
+    Test1 (test start):
+    - start circuit
+    - expected values for Rm val and Rn val should be 0000 0000 0000 0000 0000 0000 0000 0000
+
+    Test2 (test Rn and Rn val correctness):
+    - Set Rd to 0000 0000 0000 0000 0000 0000 0000 0011 and Rd Val to 0000 0000 0000 0000 0000 0000 0000 0110
+    - toggle clock
+    - Value of Rn should be 0000 0000 0000 0000 0000 0000 0000 0000 and Rn Val should be 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rn to 0000 0000 0000 0000 0000 0000 0000 0010 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rn to 0000 0000 0000 0000 0000 0000 0000 0011 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 0110
+
+    Test3 (test Rm and Rm val correctness):
+    - Set Rd to 0000 0000 0000 0000 0000 0000 0000 0101 and Rd Val to 0000 0000 0000 0000 0000 0000 0000 1010
+    - toggle clock
+    - Value of Rn should be 0000 0000 0000 0000 0000 0000 0000 0000 and Rn Val should be 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rm to 0000 0000 0000 0000 0000 0000 0000 0011 -> Rm Val expected value is 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rm to 0000 0000 0000 0000 0000 0000 0000 0101 -> Rm val expected value is 0000 0000 0000 0000 0000 0000 0000 1010
+
+    Test4(test Rm, Rm Val, Rn, and Rn Val correctness):
+    - Set Rd to 0000 0000 0000 0000 0000 0000 0000 0010 and Rd Val to 0000 0000 0000 0000 0000 0000 0000 0100
+    - toggle clock
+    - Set Rd to 0000 0000 0000 0000 0000 0000 0000 0110 and Rd Val to 0000 0000 0000 0000 0000 0000 0000 1100
+    - toggle clock
+    - Value of Rn should be 0000 0000 0000 0000 0000 0000 0000 0000 and Rn Val should be 0000 0000 0000 0000 0000 0000 0000 0000
+    - Value of Rm should be 0000 0000 0000 0000 0000 0000 0000 0000 and Rm Val should be 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rn to 0000 0000 0000 0000 0000 0000 0000 0101 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rn to 0000 0000 0000 0000 0000 0000 0000 0010 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 0100
+    - Set Rm to 0000 0000 0000 0000 0000 0000 0000 0001 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rm to 0000 0000 0000 0000 0000 0000 0000 0110 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 1100
+    - Set Rn to 0000 0000 0000 0000 0000 0000 0000 0000 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 0000
+    - Set Rm to 0000 0000 0000 0000 0000 0000 0000 0000 -> Rn Val expected value is 0000 0000 0000 0000 0000 0000 0000 0000
+
+
+Test Plan for Part 2:
+    Test1 (test start):
+    - start circuit
+    - exptected value for result should be 0000 0000 0000 0000 0000 0000 0000 0000
+
+    Test2 (test correctness of diff operations):
+    - set operand 0 to 0000 0000 0000 0000 0000 0000 0000 0011 and operand 1 to 0000 0000 0000 0000 0000 0000 0000 0001
+    - set operation to 0000 -> result expected value is 0000 0000 0000 0000 0000 0000 0000 0001
+    - set operation to 0001 -> result expected value is 0000 0000 0000 0000 0000 0000 0000 0010
+    - set operation to 0010 -> result expected value is 0000 0000 0000 0000 0000 0000 0000 0010
+    - set operation to 0011 -> result expected value is 1111 1111 1111 1111 1111 1111 1111 1110
+    - set operation to 0100 -> result expected value is 0000 0000 0000 0000 0000 0000 0000 0100
+    - set operation to 1100 -> result expected value is 0000 0000 0000 0000 0000 0000 0000 0011
+    - set operation to 1101 -> result expected value is 0000 0000 0000 0000 0000 0000 0000 0001
+    - set operation to 1111 -> result expected value is 1111 1111 1111 1111 1111 1111 1111 1110
+
+
+Test Plan for Part 3:
+    Test1 (test start):
+    - start circuit
+    - expected value for Z = 1, P = 0, N = 0
+
+    Test2 (test correctness for P, N, Z):
+    - set operand to 0000 0000 0000 0000 0000 0000 0000 0001
+    - toggle id.cc 
+    - expected value of P = 1, N = 0, Z = 0
+    - set operand to 1111 1111 1111 1111 1111 1111 1111 1110
+    - toggle id.cc
+    - expected value of P = 0, N = 1, Z = 0
+    - set operand to 0000 0000 0000 0000 0000 0000 0000 0000
+    - toggle id.cc
+    expected value of P = 0, N = 0, Z = 1

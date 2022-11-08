@@ -1,0 +1,23 @@
+def avoids(word, letters):
+    """
+    This function takes a word and returns True is the word does
+    not contain any of the letters in the input letters and returns
+    False if the word contains one or more of the letters in the input
+    letters.
+    Inputs: word (string), letters (string)
+    """
+    if word == '' or letters == '': #base case 1
+        return True
+    
+    if letters[0] == word[0]: #base case 2
+        return False
+    
+    if avoids(word[1:], letters) == False: #recursive case 1
+        return False
+    
+    if avoids(word, letters[1:]) == False: #recursive case 2
+        return False
+    
+    else: #base case 3
+        return True
+    

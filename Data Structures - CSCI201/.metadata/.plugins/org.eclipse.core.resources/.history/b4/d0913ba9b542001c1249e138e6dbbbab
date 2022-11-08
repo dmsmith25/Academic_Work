@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Stack;
+
+
+public class TimeTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Reading filename from command line.");
+		System.out.println(">>File2.dat read");
+		
+		boolean stop = false;
+		while(stop == false) {
+			
+			System.out.println();
+			System.out.println("      ADT Menu");
+			System.out.println("0. Quit\n"
+					+ "1. LinkedList (insert at end)\n"
+					+ "2. StackArray\n"
+					+ "3. StackList\n"
+					+ "4. QueueList\n"
+					+ "5. ArrayList\n"
+					+ "6. array\n"
+					+ "Your choice >>");
+			int resp = scan.nextInt();
+			
+			
+			 
+			
+			
+			
+			
+		}
+		
+		
+
+	}
+	
+	public static long LinkedList(file) {
+		
+		
+	}
+	
+	public static long StackArray(file) {
+		
+		
+		
+	}
+	
+	public static long StackList(file) {
+		
+	}
+	
+
+}

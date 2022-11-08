@@ -1,0 +1,3 @@
+To run the file the same way I ran it, you need to change the name of "read_file"
+in main to whatever file you want to read from. For example, if I wanted to run
+the file "small", I would set read_file in main equal to the string "small".
